@@ -35,11 +35,11 @@ router.get('/task/:id', function(request, response, next){
 });
 
 /* POST METHOD */
-router.post('/tasks', function(request, response, next){
+router.post('/task', function(request, response, next){
 
 	var task = request.body;
 
-	if(!task.title || (task.estaHecho + '')){
+	if(!task.title || !(task.estaHecho + '')){
 
 		response.status(400);
 		response.json({
@@ -54,7 +54,7 @@ router.post('/tasks', function(request, response, next){
 
 				response.send(error);
 			}
-				response.json(tasks);
+				response.json(task);
 		});
 	}
 });

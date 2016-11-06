@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+/* Importamos el modulo http para poder usar peticiones http desde nuestro componente */
+var http_1 = require('@angular/http');
+var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var tasks_component_1 = require('./components/tasks/tasks.component');
 var AppModule = (function () {
@@ -17,7 +20,10 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
+            /* En imports hay que declarar tambien el modulo importado
+            para que cuando exportemos la clase podamos usarlo de lo contrario
+             vamos a recibir un error del navegador */
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent],
             bootstrap: [app_component_1.AppComponent, tasks_component_1.TasksComponent]
         }), 
